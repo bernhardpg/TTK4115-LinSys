@@ -1,4 +1,4 @@
-run('Common/constants.m');
+run('../Common/constants.m');
 
 % Joystick gains
 Joystick_gain_x = 1;
@@ -19,10 +19,10 @@ C = [1 0 0;
 Co = ctrb(A, B);
 disp(['5.3.2: Rank of controllability matrix: ', num2str(rank(Co))]);
 
-q_1 = 200; % Pitch
-q_2 = 30; % Pitch rate
-q_3 = 200; % Elevation rate
-r_1 = 0.5; % V_s
+q_1 = 60; % Pitch
+q_2 = 10; % Pitch rate
+q_3 = 80; % Elevation rate
+r_1 = 1; % V_s
 r_2 = 1; % V_d
 
 Q = [q_1 0 0;
@@ -34,3 +34,9 @@ R = [r_1 0;
 
 K = lqr(A, B, Q, R);
 P = inv(C*inv(B*K - A)*B);
+
+%% Generate plots
+% genPlotFile(titleString, yString, t, reference, state, stateLegend)
+%genPlotFile('P3p2', 'Elevation LQR', 'Elevation [rad]', t, elevation(:,1), elevation(:,2), 'Measured elevation');
+%genPlotFile('P3p2', 'Elevation rate LQR', 'Elevation rate [rad/s]', t, elevation_rate(:,1), elevation_rate(:,2), 'Measured elevation rate');
+%genPlotFile('P3p2','Pitch LQR', 'Pitch [rad]', t, pitch(:,1), pitch(:,2), 'Measured pitch');
