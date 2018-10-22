@@ -1,7 +1,4 @@
-% Joystick gains
-Joystick_gain_x = 1;
-Joystick_gain_y = -0.9;
-
+%% Problem 3.1
 A = [0 1 0;
      0 0 0;
      0 0 0];
@@ -13,9 +10,8 @@ B = [0 0;
 C = [1 0 0;
      0 0 1];
 
- %% 5.3.2 - Controllability and LQR of the system
+ %% Problem 3.2 - Controllability and LQR of the system
 Co = ctrb(A, B);
-disp(['5.3.2: Rank of controllability matrix: ', num2str(rank(Co))]);
 
 q_1 = 60; % Pitch
 q_2 = 10; % Pitch rate

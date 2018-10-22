@@ -41,6 +41,7 @@ K = K_bar([1 2], [1 2 3]);
 P = inv(C*inv(B*K - A)*B);
 
 %% Generate plots
+% function [] = genPlotFile(prefix, titleString, yString, t, reference, state, stateLegend)
 genPlotFile('P4p3', 'Pitch estimate', 'Pitch [rad]', t(50:end), pitch(50:end,1), pitch(50:end,2), 'Estimated');
 genPlotFile('P4p3', 'Pitch rate estimate', 'Pitch rate [rad/s]', t(50:end), pitch_rate(50:end,1), pitch_rate(50:end,2), 'Estimated');
 genPlotFile('P4p3', 'Elevation estimate', 'Elevation [rad]', t(50:end), elevation(50:end,1), elevation(50:end,2), 'Estimated');

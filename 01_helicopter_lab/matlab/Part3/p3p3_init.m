@@ -47,10 +47,10 @@ R = [r_1 0;
 
 
 % LQR gain with integral effect
-K_bar = lqr(A_bar, B_bar, Q_bar, R);
+K_bar = lqr(A_bar, B_bar, Q_bar, R)
 
 % ################# OVERWRITING K #######################
-K = K_bar([1 2], [1 2 3]);
+K = K_bar([1 2], [1 2 3])
 
 % Reference feed forward
 P = inv(C*inv(B*K - A)*B);
