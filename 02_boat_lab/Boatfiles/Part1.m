@@ -1,3 +1,5 @@
+%% 5.1 a)
+
 K = 2;
 T = 3;
 A = [0 0 0 0 0;
@@ -12,6 +14,8 @@ C = [0 0 1 0 0];
 D = 0;
 
 [num, den] = ss2tf(A, B, C, D);
+
+%% 5.1 b)
 
 h1 = 29.3575;
 h2 = 8.315;
@@ -30,3 +34,36 @@ solT = double(solT);
 
 K = solK(1);
 T = solT(2);
+
+%TODO: PLOT
+
+%% 5.1 c)
+
+h1_noise = (63.48 - 3.915)/2; % Ok to measure, slighlt affected
+h2_noise = (5.371 - 1.979)/2; % Bad estimate, very noisy sine wave
+
+eqs = [
+    h1_noise == K_/sqrt(T_^2*w1^4 + w1^2),
+    h2_noise == K_/sqrt(T_^2*w2^4 + w2^2)
+    ];
+
+[solK, solT] = solve(eqs, [K_ T_]);
+solK = double(solK);
+solT = double(solT);
+
+K = solK(1);
+T = solT(2);
+
+
+%TODO: PLOT
+
+%% 5.1 d)
+
+transfer_func = tf(K, [T 1 0]);
+step(transfer_func);
+% Looks about right, but why solT(2) from the noicy solution?
+% TODO: Ask studass: 
+    %Unrealistic with no noice?
+    %Why not negative solution?
+
+
