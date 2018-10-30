@@ -17,15 +17,16 @@ D = 0;
 
 %% 5.1 b)
 
-h1 = 29.3575;
-h2 = 8.315;
+h1_amp = 29.3575; % From plot measurement
+h2_amp = 0.8315; % From plot measurement
+
 w1 = 0.005;
 w2 = 0.05;
 
 syms K_ T_
 eqs = [
-    h1 == K_/sqrt(T_^2*w1^4 + w1^2),
-    h2 == K_/sqrt(T_^2*w2^4 + w2^2)
+    h1_amp == K_/sqrt(T_^2*w1^4 + w1^2),
+    h2_amp == K_/sqrt(T_^2*w2^4 + w2^2)
     ];
 
 [solK, solT] = solve(eqs, [K_ T_]);
@@ -51,8 +52,8 @@ eqs = [
 solK = double(solK);
 solT = double(solT);
 
-K = solK(1);
-T = solT(2);
+K2 = solK(1)
+T2 = solT(2)
 
 
 %TODO: PLOT
@@ -60,10 +61,7 @@ T = solT(2);
 %% 5.1 d)
 
 transfer_func = tf(K, [T 1 0]);
-step(transfer_func);
-% Looks about right, but why solT(2) from the noicy solution?
-% TODO: Ask studass: 
-    %Unrealistic with no noice?
-    %Why not negative solution?
-
+step(transfer_func, 1000);
+% Looks about right compared to the actuall system.
+% TODO: graph linearized model in same plot as actual model 
 

@@ -2,44 +2,61 @@
 close all
 load('wave.mat')
 
-fs = 10;
-window = 4096;
+fs = 10; % From assigment
+window = 4096; % From assigment
 
 t = psi_w(1,:);
 x = psi_w(2,:);
 
-%[pxx,f] = pwelch(x,window, 0, 100005 ,fs);
-[pxx,f] = pwelch(x,window, [], [] ,fs);
+[pxx,f] = pwelch(x, window, [], [], fs);
 
+% Convert to radians
+w = 2*pi*f;
+pxx_radians = pxx / (2*pi);
+
+% Plot of noise signal
 figure(1)
 plot(t,x)
 
+% Plot of PSD function
 figure(2)
-plot(f,pxx)
-close all;
-figure(3)
-plot(f * (2*pi), 10*log10(pxx / (2*pi))) % ? Power ratio in dB: 10^1/10
+plot(w, pxx_radians)
 xlabel('Frequency (rad/s)');
-ylabel('PSD (dB/rad)');
-%TODO is this correct?
+ylabel('PSD (power s/rad)');
 
 %% 2b
-w_0 = 0.7823;
-w = 1:0.01:32;
-T = 10000;
-lambda = 1;
-sigma_squared = 10^(4.149/10);
-sigma = sqrt(sigma_squared)*10*10;
-K_w = 2*lambda*w_0*sigma;
-%fun = @(x, w)(K_w^2 * w.^2 / T) ./ ((w_0^2 - w.^2).^2 + (2*x(1)*w_0*w).^2);
-%x = lsqcurvefit(fun, [lambda], f*(2*pi), 10*log10(pxx / (2*pi)))
+%close all;
+w_0 = 0.7823; % From plot measurement (peak freq)
+A = 1; % Unity variance white noise
+sigma_squared = 2.6; % From plot measurement (peak value)
+sigma = sqrt(sigma_squared);
+lambda = 1; % Initial trial value for lsqcurvefit
 
-lambda = 1
-K_w = 2*lambda*w_0*sigma;
+fun = @(x, w)((2*x*w_0*sigma)^2 * w.^2 / T) ./ ((w_0^2 - w.^2).^2 + (2*x(1)*w_0*w).^2);
+
+options = optimoptions('lsqcurvefit','Display', 'iter'); 
+x = lsqcurvefit(...
+        fun,...
+        lambda,...
+        w, pxx_radians,...
+        [],[],...
+        options);
+
+lambda = x(1); % Get value from least square fit
+fprintf("Lambda from lsq curve fit algorithm: %f", lambda);
+K_w = 2*lambda*w_0*sigma; % Update K_w with correct value
 
 P_phi_w = (K_w^2 * w.^2 / T) ./ ((w_0^2 - w.^2).^2 + (2*lambda*w_0*w).^2);
 
-
+% Only plot the 135 first values
+signal_cutoff = 135;
+%TODO: Fit curve with cutoff signal?
 
 figure(4)
-plot(w, 10*log10(P_phi_w))
+plot(w(1:signal_cutoff), P_phi_w(1:signal_cutoff))
+hold on
+plot(w(1:signal_cutoff), pxx_radians(1:signal_cutoff))
+hold off
+xlabel('Frequency (rad/s)');
+ylabel('PSD (power s/rad)');
+%TODO: Legend
