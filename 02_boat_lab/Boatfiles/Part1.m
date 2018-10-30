@@ -52,16 +52,16 @@ eqs = [
 solK = double(solK);
 solT = double(solT);
 
-K2 = solK(1)
-T2 = solT(2)
+K2 = solK(1);
+T2 = solT(2);
 
 
 %TODO: PLOT
 
 %% 5.1 d)
 
-transfer_func = tf(K, [T 1 0]);
-step(transfer_func, 1000);
+H_ship = tf(K, [T 1 0]);
+%step(H_ship, 1000);
 % Looks about right compared to the actuall system.
 % TODO: graph linearized model in same plot as actual model 
 

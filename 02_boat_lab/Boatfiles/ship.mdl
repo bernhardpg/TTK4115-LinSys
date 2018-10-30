@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.21"
+    ComputedModelVersion    "1.23"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -69,7 +69,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[920.0, 866.0]
 	ZoomFactor		[1.0]
-	Offset			[-18.234375, 0.0]
+	Offset			[-58.234375, 0.0]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -101,11 +101,11 @@ Model {
   Creator		  "markh"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "akselsd"
+  LastModifiedBy	  "bernharg"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Oct 22 17:25:44 2018"
-  RTWModifiedTimeStamp	  462129116
-  ModelVersionFormat	  "1.%<AutoIncrement:21>"
+  LastModifiedDate	  "Tue Oct 30 13:19:14 2018"
+  RTWModifiedTimeStamp	  462806353
+  ModelVersionFormat	  "1.%<AutoIncrement:23>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1064,6 +1064,19 @@ Model {
       Floating		      off
     }
     Block {
+      BlockType		      Sin
+      SineType		      "Time based"
+      TimeSource	      "Use simulation time"
+      Amplitude		      "1"
+      Bias		      "0"
+      Frequency		      "1"
+      Phase		      "0"
+      Samples		      "10"
+      Offset		      "0"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+    }
+    Block {
       BlockType		      Step
       Time		      "1"
       Before		      "0"
@@ -1120,6 +1133,14 @@ Model {
       SaturateOnIntegerOverflow	on
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      TransferFcn
+      Numerator		      "[1]"
+      Denominator	      "[1 2 1]"
+      AbsoluteTolerance	      "auto"
+      ContinuousStateAttributes	"''"
+      Realization	      "auto"
+    }
   }
   System {
     Name		    "ship"
@@ -1138,7 +1159,19 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "36"
+    SIDHighWatermark	    "43"
+    Block {
+      BlockType		      Sum
+      Name		      "Add"
+      SID		      "42"
+      Ports		      [2, 1]
+      Position		      [60, 192, 90, 223]
+      ZOrder		      12
+      Inputs		      "+-"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
     Block {
       BlockType		      SubSystem
       Name		      "Cargo ship"
@@ -1179,7 +1212,7 @@ Model {
 	    Type		    "checkbox"
 	    Name		    "logic"
 	    Prompt		    "waves"
-	    Value		    "on"
+	    Value		    "off"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -1734,10 +1767,7 @@ Model {
       "0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','Lin"
       "ePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placem"
       "ent',1)),extmgr.Configuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY'),extmgr.Configuration('Too"
-      "ls','Measurements',true,'Measurements',struct('tcursors',struct('XCoordinates',[639.737991266377 699.62570180911"
-      "],'YCoordinates',[1.97919961895999 5.37072175090177],'CursorChannels',[1 1],'WaveformCursors',true,'ShowHorizont"
-      "al',false,'ShowVertical',true,'LockCursorSpacing',false,'SnapToData',false,'SettingsPanelOpen',0,'MeasurementsPa"
-      "nelOpen',1)),'Version','2017a')),'Version','2017a','Location',[1 76 1921 1039])"
+      "ls','Measurements',true,'Version','2017a')),'Version','2017a','Location',[2 84 960 1038])"
       NumInputPorts	      "1"
     }
     Block {
@@ -1769,13 +1799,40 @@ Model {
       NumInputPorts	      "1"
     }
     Block {
+      BlockType		      Sin
+      Name		      "Sine Wave"
+      SID		      "37"
+      Ports		      [0, 1]
+      Position		      [135, 560, 165, 590]
+      ZOrder		      7
+      Frequency		      "0.05"
+      SampleTime	      "0"
+    }
+    Block {
       BlockType		      Step
       Name		      "Step"
-      SID		      "36"
-      Position		      [165, 195, 195, 225]
-      ZOrder		      6
+      SID		      "38"
+      Position		      [45, 530, 75, 560]
+      ZOrder		      8
       Time		      "0"
       SampleTime	      "0"
+    }
+    Block {
+      BlockType		      TransferFcn
+      Name		      "Transfer Fcn"
+      SID		      "40"
+      Position		      [125, 179, 265, 241]
+      ZOrder		      10
+      Numerator		      "[K_pd*T_d K_pd]"
+      Denominator	      "[T_f 1]"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "r"
+      SID		      "41"
+      Position		      [-25, 185, 5, 215]
+      ZOrder		      11
+      Value		      "psi_r"
     }
     Line {
       ZOrder		      1
@@ -1795,26 +1852,50 @@ Model {
       ZOrder		      3
       SrcBlock		      "Cargo ship"
       SrcPort		      1
-      Points		      [100, 0; 0, -40]
-      DstBlock		      "Scope"
+      Points		      [32, 0]
+      Branch {
+	ZOrder			20
+	Points			[0, 87; -421, 0; 0, -62]
+	DstBlock		"Add"
+	DstPort			2
+      }
+      Branch {
+	ZOrder			19
+	Points			[68, 0; 0, -40]
+	DstBlock		"Scope"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      13
+      SrcBlock		      "Transfer Fcn"
+      SrcPort		      1
+      DstBlock		      "Cargo ship"
       DstPort		      1
     }
     Line {
-      ZOrder		      8
-      SrcBlock		      "Step"
+      ZOrder		      15
+      SrcBlock		      "r"
       SrcPort		      1
-      Points		      [56, 0]
-      Branch {
-	ZOrder			7
-	Points			[0, -105]
-	DstBlock		"Scope1"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			6
-	DstBlock		"Cargo ship"
-	DstPort			1
-      }
+      DstBlock		      "Add"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      16
+      SrcBlock		      "Add"
+      SrcPort		      1
+      DstBlock		      "Transfer Fcn"
+      DstPort		      1
+    }
+    Annotation {
+      SID		      "43"
+      Name		      "e"
+      Position		      [99, 192, 106, 206]
+      InternalMargins	      [0, 0, 0, 0]
+      FixedHeight	      off
+      FixedWidth	      off
+      HorizontalAlignment     "left"
+      VerticalAlignment	      "top"
     }
   }
 }
