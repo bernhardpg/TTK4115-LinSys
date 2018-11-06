@@ -1,4 +1,4 @@
-%% 2a
+%% 5.2 a)
 close all;
 load('../Common/wave.mat');
 
@@ -15,15 +15,16 @@ w = 2*pi*f;
 pxx_radians = pxx / (2*pi);
 
 % Plot of noise signal
-genPlotFile('P5p2', 'Wave disturbance', 'Time [s]', 'Degrees', t, x, [], 'Wave disturbance [deg]', '')
+genPlotFile('Part_5_2_a', 'Wave disturbance', 'Time [s]', 'Disturbance [deg]', t, x, [], '$\psi_{\omega}$', '')
 %genPlotFile(prefix, titleString, xLabel, yLabel, xArray, plot1, plot2, plot1Legend, plot2Legend)
 
 % Plot of PSD function
 signal_cutoff = 135;
-genPlotFile('P5p2', 'PSD estimate of the wave disturbance', 'Frequency [rad/s]', 'Power [power s/rad]', w(1:signal_cutoff), pxx_radians(1:signal_cutoff), [], 'Power [power s/rad]', '')
 
-%% 2b
-%close all;
+% Is this unneccesary?
+%genPlotFile('Part_5_2_a', 'PSD estimate of the wave disturbance', 'Frequency [rad/s]', 'Power [power s/rad]', w(1:signal_cutoff), pxx_radians(1:signal_cutoff), [], '$S_{\psi_{\omega}}(\omega)$', '');
+
+%% 5.2 d)
 w_0 = 0.7823; % From plot measurement (peak freq)
 A = 1; % Unity variance white noise
 sigma_squared = 2.6; % From plot measurement (peak value)
@@ -32,7 +33,7 @@ lambda = 1; % Initial trial value for lsqcurvefit
 
 fun = @(x, w)((2*x*w_0*sigma)^2 * w.^2) ./ ((w_0^2 - w.^2).^2 + (2*x(1)*w_0*w).^2);
 
-options = optimoptions('lsqcurvefit','Display', 'iter'); 
+%options = optimoptions('lsqcurvefit','Display', 'iter'); 
 x = lsqcurvefit(...
         fun,...
         lambda,...
@@ -50,11 +51,4 @@ P_phi_w = (K_w^2 * w.^2) ./ ((w_0^2 - w.^2).^2 + (2*lambda*w_0*w).^2);
 signal_cutoff = 135;
 %TODO: Fit curve with cutoff signal?
 
-figure(4)
-plot(w(1:signal_cutoff), P_phi_w(1:signal_cutoff))
-hold on
-plot(w(1:signal_cutoff), pxx_radians(1:signal_cutoff))
-hold off
-xlabel('Frequency (rad/s)');
-ylabel('PSD (power s/rad)');
-%TODO: Legend
+genPlotFile('Part_5_2_d', 'Power Spectral Density function', 'Frequency [rad/s]', 'Power [power s/rad]', w(1:signal_cutoff), pxx_radians(1:signal_cutoff), P_phi_w(1:signal_cutoff), '$S_{\psi_{\omega}}(\omega)$ (Estimated function)', '$P_{\psi_{\omega}}(\omega)$ (Curve fitted function)')

@@ -10,7 +10,7 @@ function [] = genPlotFile(prefix, titleString, xLabel, yLabel, xArray, plot1, pl
         plot(xArray, plot2, 'r');
     end
     
-    legend({plot1Legend, plot2Legend}, 'Location','southeast');
+    legend({plot1Legend, plot2Legend}, 'Location','southeast', 'Interpreter', 'Latex', 'FontSize', 14);
     hold off;
     filename = strrep(titleString, ' ', '_');
     filepath = strcat('../Common/figures/', prefix, '_', filename);
