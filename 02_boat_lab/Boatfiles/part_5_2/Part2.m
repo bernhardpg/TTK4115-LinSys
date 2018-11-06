@@ -19,10 +19,8 @@ genPlotFile('P5p2', 'Wave disturbance', 'Time [s]', 'Degrees', t, x, [], 'Wave d
 %genPlotFile(prefix, titleString, xLabel, yLabel, xArray, plot1, plot2, plot1Legend, plot2Legend)
 
 % Plot of PSD function
-figure(2)
-plot(w, pxx_radians)
-xlabel('Frequency (rad/s)');
-ylabel('PSD (power s/rad)');
+signal_cutoff = 135;
+genPlotFile('P5p2', 'PSD estimate of the wave disturbance', 'Frequency [rad/s]', 'Power [power s/rad]', w(1:signal_cutoff), pxx_radians(1:signal_cutoff), [], 'Power [power s/rad]', '')
 
 %% 2b
 %close all;
