@@ -1,6 +1,7 @@
 %% 2a
-close all
-load('wave.mat')
+close all;
+load('wave.mat');
+%run('Part1.m');
 
 fs = 10; % From assigment
 window = 4096; % From assigment
@@ -32,7 +33,7 @@ sigma_squared = 2.6; % From plot measurement (peak value)
 sigma = sqrt(sigma_squared);
 lambda = 1; % Initial trial value for lsqcurvefit
 
-fun = @(x, w)((2*x*w_0*sigma)^2 * w.^2 / T) ./ ((w_0^2 - w.^2).^2 + (2*x(1)*w_0*w).^2);
+fun = @(x, w)((2*x*w_0*sigma)^2 * w.^2) ./ ((w_0^2 - w.^2).^2 + (2*x(1)*w_0*w).^2);
 
 options = optimoptions('lsqcurvefit','Display', 'iter'); 
 x = lsqcurvefit(...
@@ -46,7 +47,7 @@ lambda = x(1); % Get value from least square fit
 fprintf("Lambda from lsq curve fit algorithm: %f", lambda);
 K_w = 2*lambda*w_0*sigma; % Update K_w with correct value
 
-P_phi_w = (K_w^2 * w.^2 / T) ./ ((w_0^2 - w.^2).^2 + (2*lambda*w_0*w).^2);
+P_phi_w = (K_w^2 * w.^2) ./ ((w_0^2 - w.^2).^2 + (2*lambda*w_0*w).^2);
 
 % Only plot the 135 first values
 signal_cutoff = 135;

@@ -1,4 +1,4 @@
-clc; clear all;
+clc; close all;
 run('Part1.m');
 
 %% Part 5.3 a)
@@ -9,7 +9,7 @@ w_c = 0.1;
 K_pd = sqrt(w_c ^2 + (T_f * w_c^2)^2) / K;
 phase_margin = 50;
 H_pd = K_pd * tf([T_d 1],...
-                 [T_f, 1])
+                 [T_f, 1]);
 H_ol = H_pd * H_ship; 
 margin(H_ol) 
 
@@ -29,7 +29,7 @@ psi_r = 30;
 % No, we can a stationary offset. This is because zero input does not give
 % zero error. Need integral effect <3
 
-%% Part 5.4 d)
+%% Part 5.3 d)
 % The compass shows that the boat is heading in the right direction, but
 % the waves are knocking the boat off course with about +/- 2 degrees every 2
 % seconds
