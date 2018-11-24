@@ -1,8 +1,3 @@
-clc; clear all; close all;
-run('Part3.m');
-run('Constants.m');
-close all;
-
 %% Part 5.5 a)
 
 % Continous state space model from 5.4 a)
@@ -59,6 +54,7 @@ sim('task5_5_d');
 
 psi_r = 30;
 
+%{
 %genPlotFile(prefix, titleString, xLabel, yLabel, xArray, plot1, plot2, plot1Legend, plot2Legend)
 
 genPlotFile('Part_5_5_d', 'Measured compass course (with bias estimate feed forward)', 'time [s]', ...
@@ -71,7 +67,7 @@ genPlotFile('Part_5_5_d', 'Estimated bias and rudder input', 'time [s]', ...
     '$\hat{b}$ (Estimated bias)', '${u}$ (Rudder input)');
 
 
-%{
+
  Comments: The Kalman filter estimates the bias, which is then feed
  forwarded. Given a perfect bias estimate, this is equivalent to not having
  a bias at all. It is clear that the bias is the reason for the constant
