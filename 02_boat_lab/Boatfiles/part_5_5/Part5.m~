@@ -1,4 +1,5 @@
 clc; clear all; close all;
+run('Part3.m');
 run('Constants.m');
 close all;
 
@@ -42,10 +43,11 @@ R = R_sigma_squared / T;
 
 
 %% Part 5.5 c)
-P_0_minus =
-    [1 0 0 0 0;
-     0 0.013 0 0 0;
-     0 0 pi^2 0 0;
-     0 0 0 1 0;
-     0 0 0 0 2.5*10^(-3)];
+P_0_apriori = diag([1 0.013 pi^2 1 2.5*10^(-3)]);
+ 
+x_hat_0_apriori = [0 0 0 0 0]';
+ 
+Q = diag([30 10^(-6)]);
+
+system = struct('A_d', A_d, 'B_d', B_d, '', );
 

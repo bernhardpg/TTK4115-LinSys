@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.34"
+    ComputedModelVersion    "1.93"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -59,7 +59,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [232.0, 22.0, 974.0, 1028.0]
+      Location		      [464.0, 22.0, 1032.0, 779.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -83,7 +83,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[936.0, 852.0]
+	Extents			[994.0, 603.0]
 	ZoomFactor		[1.0]
 	Offset			[-58.234375, 0.0]
       }
@@ -105,10 +105,10 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABzAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALgD///8AAAPOAAADjwAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAALgD///8AAAQIAAAClgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACE/////wAAAAAAAAAA/////wEAAAD2/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAF6/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAOf/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAOh/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
@@ -119,9 +119,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bernhardpg"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Nov 24 13:13:49 2018"
-  RTWModifiedTimeStamp	  464966009
-  ModelVersionFormat	  "1.%<AutoIncrement:34>"
+  LastModifiedDate	  "Sat Nov 24 14:10:12 2018"
+  RTWModifiedTimeStamp	  464969408
+  ModelVersionFormat	  "1.%<AutoIncrement:93>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1222,7 +1222,7 @@ Model {
   }
   System {
     Name		    "task5_5_c"
-    Location		    [232, 22, 1206, 1050]
+    Location		    [464, 22, 1496, 801]
     Open		    on
     PortBlocksUseCompactNotation off
     SetDomainSpec	    off
@@ -1239,7 +1239,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "49"
+    SIDHighWatermark	    "55"
     Block {
       BlockType		      Sum
       Name		      "Add"
@@ -1257,7 +1257,7 @@ Model {
       Name		      "Cargo ship"
       SID		      "1"
       Ports		      [1, 3]
-      Position		      [340, 178, 445, 242]
+      Position		      [615, 178, 720, 242]
       ZOrder		      -1
       BackgroundColor	      "green"
       RequestExecContextInheritance off
@@ -1807,7 +1807,7 @@ Model {
       Name		      "Compass course"
       SID		      "30"
       Ports		      [1]
-      Position		      [555, 134, 585, 166]
+      Position		      [805, 134, 835, 166]
       ZOrder		      -3
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
@@ -1838,8 +1838,8 @@ Model {
       BlockType		      SubSystem
       Name		      "MATLAB Function"
       SID		      "48"
-      Ports		      [1, 1]
-      Position		      [340, 267, 410, 313]
+      Ports		      [2, 2]
+      Position		      [260, 256, 375, 354]
       ZOrder		      17
       BlockMirror	      on
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -1866,13 +1866,22 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"21"
+	SIDHighWatermark	"24"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
 	  SID			  "48::1"
 	  Position		  [20, 101, 40, 119]
 	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "compass"
+	  SID			  "48::22"
+	  Position		  [20, 136, 40, 154]
+	  ZOrder		  13
+	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -1889,17 +1898,22 @@ Model {
 	  Name			  " SFunction "
 	  SID			  "48::19"
 	  Tag			  "Stateflow S-Function task5_5_c 2"
-	  Ports			  [1, 2]
-	  Position		  [180, 100, 230, 160]
+	  Ports			  [2, 3]
+	  Position		  [180, 100, 230, 180]
 	  ZOrder		  10
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[1 2]"
+	  Parameters		  "system"
+	  PortCounts		  "[2 3]"
 	  SFunctionDeploymentMode off
-	  EnableBusSupport	  off
+	  EnableBusSupport	  on
 	  SFcnIsStateOwnerBlock	  off
 	  Port {
 	    PortNumber		    2
-	    Name		    "y"
+	    Name		    "psi"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "b"
 	  }
 	}
 	Block {
@@ -1911,37 +1925,62 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "y"
+	  Name			  "psi"
 	  SID			  "48::5"
 	  Position		  [460, 101, 480, 119]
 	  ZOrder		  -5
 	  IconDisplay		  "Port number"
 	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "b"
+	  SID			  "48::24"
+	  Position		  [460, 136, 480, 154]
+	  ZOrder		  15
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
 	Line {
-	  ZOrder		  5
+	  ZOrder		  37
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "y"
-	  ZOrder		  6
+	  ZOrder		  38
+	  SrcBlock		  "compass"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "psi"
+	  ZOrder		  39
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  DstBlock		  "y"
+	  DstBlock		  "psi"
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  7
+	  Name			  "b"
+	  ZOrder		  40
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "b"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  41
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  8
+	  ZOrder		  42
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1951,10 +1990,18 @@ Model {
     }
     Block {
       BlockType		      Memory
-      Name		      "Memory"
-      SID		      "49"
-      Position		      [215, 275, 245, 305]
-      ZOrder		      18
+      Name		      "Memory1"
+      SID		      "54"
+      Position		      [160, 265, 190, 295]
+      ZOrder		      23
+      BlockMirror	      on
+    }
+    Block {
+      BlockType		      Memory
+      Name		      "Memory2"
+      SID		      "55"
+      Position		      [160, 315, 190, 345]
+      ZOrder		      24
       BlockMirror	      on
     }
     Block {
@@ -1962,7 +2009,7 @@ Model {
       Name		      "North-East"
       SID		      "29"
       Ports		      [2]
-      Position		      [505, 198, 535, 242]
+      Position		      [805, 198, 835, 242]
       ZOrder		      -2
       LibraryVersion	      "1.441"
       SourceBlock	      "simulink/Sinks/XY Graph"
@@ -2008,8 +2055,18 @@ Model {
       BlockType		      ZeroOrderHold
       Name		      "Zero-Order\nHold"
       SID		      "47"
-      Position		      [665, 145, 700, 175]
+      Position		      [485, 315, 520, 345]
       ZOrder		      16
+      BlockMirror	      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ZeroOrderHold
+      Name		      "Zero-Order\nHold1"
+      SID		      "51"
+      Position		      [485, 265, 520, 295]
+      ZOrder		      20
+      BlockMirror	      on
       SampleTime	      "-1"
     }
     Block {
@@ -2025,7 +2082,7 @@ Model {
       Name		      "u"
       SID		      "34"
       Ports		      [1]
-      Position		      [305, 89, 335, 121]
+      Position		      [515, 89, 545, 121]
       ZOrder		      4
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
@@ -2067,16 +2124,16 @@ Model {
       ZOrder		      3
       SrcBlock		      "Cargo ship"
       SrcPort		      1
-      Points		      [17, 0]
+      Points		      [15, 0]
       Branch {
-	ZOrder			47
-	Points			[0, 100]
-	DstBlock		"MATLAB Function"
+	ZOrder			58
+	Points			[0, 140]
+	DstBlock		"Zero-Order\nHold"
 	DstPort			1
       }
       Branch {
-	ZOrder			46
-	Points			[63, 0; 0, -40]
+	ZOrder			57
+	Points			[0, -40]
 	DstBlock		"Compass course"
 	DstPort			1
       }
@@ -2096,27 +2153,58 @@ Model {
       DstPort		      1
     }
     Line {
+      ZOrder		      60
+      SrcBlock		      "Zero-Order\nHold"
+      SrcPort		      1
+      DstBlock		      "MATLAB Function"
+      DstPort		      2
+    }
+    Line {
+      ZOrder		      71
+      SrcBlock		      "Zero-Order\nHold1"
+      SrcPort		      1
+      DstBlock		      "MATLAB Function"
+      DstPort		      1
+    }
+    Line {
       ZOrder		      13
       SrcBlock		      "Transfer Fcn"
       SrcPort		      1
-      Points		      [7, 0]
+      Points		      [217, 0]
       Branch {
-	ZOrder			44
-	DstBlock		"Cargo ship"
-	DstPort			1
+	ZOrder			76
+	Points			[99, 0]
+	Branch {
+	  ZOrder		  78
+	  Points		  [0, 70]
+	  DstBlock		  "Zero-Order\nHold1"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  77
+	  DstBlock		  "Cargo ship"
+	  DstPort		  1
+	}
       }
       Branch {
-	ZOrder			43
+	ZOrder			75
 	Points			[0, -105]
 	DstBlock		"u"
 	DstPort			1
       }
     }
     Line {
-      ZOrder		      53
+      ZOrder		      91
       SrcBlock		      "MATLAB Function"
       SrcPort		      1
-      DstBlock		      "Memory"
+      DstBlock		      "Memory1"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      92
+      SrcBlock		      "MATLAB Function"
+      SrcPort		      2
+      DstBlock		      "Memory2"
       DstPort		      1
     }
     Annotation {
@@ -2142,7 +2230,7 @@ Stateflow {
     created		    "24-Nov-2018 13:11:49"
     isLibrary		    0
     sfVersion		    80000014
-    firstTarget		    9
+    firstTarget		    12
   }
   chart {
     id			    2
@@ -2156,7 +2244,7 @@ Stateflow {
     visible		    1
     subviewS {
     }
-    ssIdHighWaterMark	    5
+    ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     chartFileNumber	    2
@@ -2165,8 +2253,8 @@ Stateflow {
       name		      "fcn"
     }
     firstData		    4
-    firstTransition	    7
-    firstJunction	    6
+    firstTransition	    10
+    firstJunction	    9
   }
   state {
     id			    3
@@ -2182,7 +2270,14 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function y = fcn(u)\n\ny = u;\n"
+      script		      "function [psi,b] = fcn(u, compass, system)\n\npersistent init_flag A_d B_d C_d R Q x_hat_k_aprior"
+      "i P_k_apriori\n\nif isempty(init_flag)\n    init_flag = 1;\n    [A_d, B_d, C_d, R, Q, x_hat_k_apriori, P_k_aprio"
+      "ri] = ...\n        deal(system.A_d, system.B_d, system.C_d, ...\n        system.R, system.Q, ...\n        system"
+      ".x_hat_0_apriori, system.P_0_apriori);\nend\n\n% Compute Kalman gain\nK_k = P_k_apriori * C_d' * INV(C_d * P_k_a"
+      "priori * C_d' + R);\n\n% Update estimate with measurement\nx_hat_k = x_hat_k_apriori + K_k(compass - C_d * x_hat"
+      "_k_apriori);\n\n% Compute error covariance for updated estimate\nP_k = (eye(5) - K_k * C_d) * P_k_apriori;\n\n% "
+      "Project ahead\nx_hat_k_apriori = A_d * x_hat + B_d * u;\nP_k_apriori = A_d * P_k * A_d' + Q;\n\npsi = x_hat_k(3)"
+      ";\nb = x_hat_k(5);\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -2210,8 +2305,33 @@ Stateflow {
   }
   data {
     id			    5
+    ssIdNumber		    6
+    name		    "compass"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [2 4 6]
+  }
+  data {
+    id			    6
     ssIdNumber		    5
-    name		    "y"
+    name		    "psi"
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -2229,10 +2349,60 @@ Stateflow {
       }
     }
     dataType		    "Inherit: Same as Simulink"
-    linkNode		    [2 4 0]
+    linkNode		    [2 5 7]
+  }
+  data {
+    id			    7
+    ssIdNumber		    8
+    name		    "b"
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [2 6 8]
+  }
+  data {
+    id			    8
+    ssIdNumber		    7
+    name		    "system"
+    scope		    PARAMETER_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [2 7 0]
   }
   junction {
-    id			    6
+    id			    9
     position		    [23.5747 49.5747 7]
     chart		    2
     subviewer		    2
@@ -2241,7 +2411,7 @@ Stateflow {
     linkNode		    [2 0 0]
   }
   transition {
-    id			    7
+    id			    10
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [28.125 13.875 102.544 14.964]
     fontSize		    12
@@ -2249,7 +2419,7 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      6
+      id		      9
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
@@ -2265,13 +2435,13 @@ Stateflow {
     linkNode		    [2 0 0]
   }
   instance {
-    id			    8
+    id			    11
     machine		    1
     name		    "MATLAB Function"
     chart		    2
   }
   target {
-    id			    9
+    id			    12
     machine		    1
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
