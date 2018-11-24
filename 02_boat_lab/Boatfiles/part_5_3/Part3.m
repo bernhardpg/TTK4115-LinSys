@@ -27,7 +27,16 @@ psi_r = 30;
 
 %% Part 5.3 c)
 % No, we can a stationary offset. This is because zero input does not give
-% zero error. Need integral effect <3
+% zero error. Need integral effect
+%sim('task5_3_c');
+
+%genPlotFile(prefix, titleString, xLabel, yLabel, xArray, plot1, plot2, plot1Legend, plot2Legend)
+%{
+genPlotFile('Part_5_3_c', 'Measured compass course', 'time [s]', ...
+    'Heading [deg]', psi_measured.time, psi_r_vector.data, psi_measured.data,...
+    '$\psi_r$ (Reference)', '$\psi$ (Measured compass course)');
+%}
+
 
 %% Part 5.3 d)
 % The compass shows that the boat is heading in the right direction, but

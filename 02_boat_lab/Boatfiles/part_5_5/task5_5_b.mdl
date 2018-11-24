@@ -1,12 +1,12 @@
 Model {
-  Name			  "ship"
+  Name			  "task5_5_b"
   Version		  9.1
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.33"
+    ComputedModelVersion    "1.38"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -19,13 +19,13 @@ Model {
     NumExternalFileReferences 2
     ExternalFileReference {
       Reference		      "simulink/Sources/Band-Limited\nWhite Noise"
-      Path		      "ship/Cargo ship/Measurement noise"
+      Path		      "task5_5_b/Cargo ship/Measurement noise"
       SID		      "11"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
       Reference		      "simulink/Sinks/XY Graph"
-      Path		      "ship/North-East"
+      Path		      "task5_5_b/North-East"
       SID		      "29"
       Type		      "LIBRARY_BLOCK"
     }
@@ -119,9 +119,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bernhardpg"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Nov 24 12:59:50 2018"
-  RTWModifiedTimeStamp	  464965178
-  ModelVersionFormat	  "1.%<AutoIncrement:33>"
+  LastModifiedDate	  "Sat Nov 24 16:15:05 2018"
+  RTWModifiedTimeStamp	  464976904
+  ModelVersionFormat	  "1.%<AutoIncrement:38>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -177,11 +177,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "ship"
+    model_		    "task5_5_b"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "ship"
+      Cell		      "task5_5_b"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -232,7 +232,7 @@ Model {
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
-	  StopTime		  "1000"
+	  StopTime		  "500"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  "on"
 	  FixedStep		  "timestep"
@@ -1210,7 +1210,7 @@ Model {
     }
   }
   System {
-    Name		    "ship"
+    Name		    "task5_5_b"
     Location		    [232, 22, 1206, 1050]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1281,7 +1281,7 @@ Model {
 	    Type		    "checkbox"
 	    Name		    "logic"
 	    Prompt		    "waves"
-	    Value		    "on"
+	    Value		    "off"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -1895,17 +1895,6 @@ Model {
       Denominator	      "[T_f 1]"
     }
     Block {
-      BlockType		      Gain
-      Name		      "d2r"
-      SID		      "46"
-      Position		      [525, 305, 575, 335]
-      ZOrder		      15
-      Gain		      "pi/180"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
       BlockType		      Constant
       Name		      "r"
       SID		      "41"
@@ -1959,34 +1948,6 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      3
-      SrcBlock		      "Cargo ship"
-      SrcPort		      1
-      Points		      [12, 0]
-      Branch {
-	ZOrder			20
-	Points			[0, 87; -421, 0; 0, -62]
-	DstBlock		"Add"
-	DstPort			2
-      }
-      Branch {
-	ZOrder			19
-	Points			[15, 0]
-	Branch {
-	  ZOrder		  35
-	  Points		  [0, 130]
-	  DstBlock		  "d2r"
-	  DstPort		  1
-	}
-	Branch {
-	  ZOrder		  34
-	  Points		  [53, 0; 0, -40]
-	  DstBlock		  "Compass course"
-	  DstPort		  1
-	}
-      }
-    }
-    Line {
       ZOrder		      13
       SrcBlock		      "Transfer Fcn"
       SrcPort		      1
@@ -2016,11 +1977,32 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      33
-      SrcBlock		      "d2r"
+      ZOrder		      3
+      SrcBlock		      "Cargo ship"
       SrcPort		      1
-      DstBlock		      "To Workspace"
-      DstPort		      1
+      Points		      [12, 0]
+      Branch {
+	ZOrder			20
+	Points			[0, 87; -421, 0; 0, -62]
+	DstBlock		"Add"
+	DstPort			2
+      }
+      Branch {
+	ZOrder			19
+	Points			[15, 0]
+	Branch {
+	  ZOrder		  42
+	  Points		  [0, 130]
+	  DstBlock		  "To Workspace"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  34
+	  Points		  [53, 0; 0, -40]
+	  DstBlock		  "Compass course"
+	  DstPort		  1
+	}
+      }
     }
     Annotation {
       SID		      "43"
