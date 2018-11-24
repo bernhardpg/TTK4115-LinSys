@@ -33,7 +33,7 @@ lambda = 1; % Initial trial value for lsqcurvefit
 
 fun = @(x, w)((2*x*w_0*sigma)^2 * w.^2) ./ ((w_0^2 - w.^2).^2 + (2*x(1)*w_0*w).^2);
 
-%options = optimoptions('lsqcurvefit','Display', 'iter'); 
+options = optimoptions('lsqcurvefit','Display', 'iter'); 
 x = lsqcurvefit(...
         fun,...
         lambda,...
@@ -41,7 +41,7 @@ x = lsqcurvefit(...
         [],[],...
         options);
 
-lambda = x(1); % Get value from least square fit
+lambda = x(1) % Get value from least square fit
 fprintf("Lambda from lsq curve fit algorithm: %f", lambda);
 K_w = 2*lambda*w_0*sigma; % Update K_w with correct value
 
