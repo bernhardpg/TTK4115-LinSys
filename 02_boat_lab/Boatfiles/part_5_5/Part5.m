@@ -32,3 +32,19 @@ T = 0.1; % seconds (10 Hz)
 
 [A_d, B_d] = c2d(A, B, T);
 [A_d, E_d] = c2d(A, B, T);
+
+%% Part 5.5 b)
+
+%load_system('task5_5_b');
+sim('task5_5_b');
+R_sigma_squared = var(v_measurement.data) % [rad^2]
+R = R_sigma_squared / T;
+
+
+%% Part 5.5 c)
+P_0_minus = diag([1 0.013 pi^2 1 2.5*10^(-3)]);
+ 
+x_hat_0_minus = [0 0 0 0 0]';
+ 
+Q = diag([30 10^(-6)]);
+
