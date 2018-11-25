@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.31"
+    ComputedModelVersion    "1.33"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -103,9 +103,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "akselsd"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Nov 24 21:05:54 2018"
-  RTWModifiedTimeStamp	  464993749
-  ModelVersionFormat	  "1.%<AutoIncrement:31>"
+  LastModifiedDate	  "Sun Nov 25 15:31:19 2018"
+  RTWModifiedTimeStamp	  465060648
+  ModelVersionFormat	  "1.%<AutoIncrement:33>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1143,13 +1143,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "45"
+    SIDHighWatermark	    "46"
     Block {
       BlockType		      Sum
       Name		      "Add"
       SID		      "42"
       Ports		      [2, 1]
-      Position		      [60, 192, 90, 223]
+      Position		      [20, 192, 50, 223]
       ZOrder		      12
       Inputs		      "+-"
       InputSameDT	      off
@@ -1727,6 +1727,17 @@ Model {
       st		      "-1"
     }
     Block {
+      BlockType		      Saturate
+      Name		      "Saturation"
+      SID		      "46"
+      Ports		      [1, 1]
+      Position		      [250, 195, 280, 225]
+      ZOrder		      15
+      InputPortMap	      "u0"
+      UpperLimit	      "35"
+      LowerLimit	      "-35"
+    }
+    Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace"
       SID		      "44"
@@ -1758,7 +1769,7 @@ Model {
       BlockType		      TransferFcn
       Name		      "Transfer Fcn"
       SID		      "40"
-      Position		      [125, 179, 265, 241]
+      Position		      [85, 179, 225, 241]
       ZOrder		      10
       Numerator		      "[K_pd*T_d K_pd]"
       Denominator	      "[T_f 1]"
@@ -1767,7 +1778,7 @@ Model {
       BlockType		      Constant
       Name		      "r"
       SID		      "41"
-      Position		      [-25, 185, 5, 215]
+      Position		      [-40, 185, -10, 215]
       ZOrder		      11
       Value		      "psi_r"
     }
@@ -1798,7 +1809,7 @@ Model {
       }
       Branch {
 	ZOrder			27
-	Points			[116, 0; 0, 87; -535, 0; 0, -62]
+	Points			[116, 0; 0, 87; -571, 0]
 	DstBlock		"Add"
 	DstPort			2
       }
@@ -1821,7 +1832,14 @@ Model {
       ZOrder		      13
       SrcBlock		      "Transfer Fcn"
       SrcPort		      1
-      Points		      [35, 0]
+      DstBlock		      "Saturation"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      35
+      SrcBlock		      "Saturation"
+      SrcPort		      1
+      Points		      [20, 0]
       Branch {
 	ZOrder			31
 	DstBlock		"To Workspace1"

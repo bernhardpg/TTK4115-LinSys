@@ -6,7 +6,7 @@ function [] = genPlotFileSingle(prefix, titleString, xLabel, yLabel, xArray, plo
     xlabel(xLabel);
     hold on;
     plot(xArray, plot1, 'b');    
-    legend({plot1Legend}, 'Location','southeast', 'Interpreter', 'Latex', 'FontSize', 14);
+    legend({plot1Legend}, 'Location','northeast', 'Interpreter', 'Latex', 'FontSize', 14);
     hold off;
     axis([0 xArray(end) min(plot1) max(plot1) * 1.25]);
     
