@@ -28,7 +28,7 @@ w_0_index = find(pxx_radians==max(pxx_radians));
 w_0 = w(w_0_index);
 
 A = 1; % Unity variance white noise
-sigma_squared = 2.6; % From plot measurement (peak value)
+sigma_squared = max(pxx_radians); % From plot measurement (peak value)
 sigma = sqrt(sigma_squared);
 lambda = 1; % Initial trial value for lsqcurvefit
 
