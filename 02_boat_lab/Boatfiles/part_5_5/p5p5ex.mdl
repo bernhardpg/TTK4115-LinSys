@@ -1,12 +1,12 @@
 Model {
-  Name			  "task5_5_e"
+  Name			  "p5p5ex"
   Version		  9.1
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.140"
+    ComputedModelVersion    "1.141"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -19,13 +19,13 @@ Model {
     NumExternalFileReferences 2
     ExternalFileReference {
       Reference		      "simulink/Sources/Band-Limited\nWhite Noise"
-      Path		      "task5_5_e/Cargo ship/Measurement noise"
+      Path		      "p5p5ex/Cargo ship/Measurement noise"
       SID		      "11"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
       Reference		      "simulink/Sinks/XY Graph"
-      Path		      "task5_5_e/North-East"
+      Path		      "p5p5ex/North-East"
       SID		      "29"
       Type		      "LIBRARY_BLOCK"
     }
@@ -84,8 +84,8 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[1452.0, 852.0]
-	ZoomFactor		[1.5093364689515829]
-	Offset			[-34.275599104634807, -25.411958501580045]
+	ZoomFactor		[1.25]
+	Offset			[-90.29020804283607, -67.110955056179876]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -119,9 +119,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bernhardpg"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Nov 24 17:59:20 2018"
-  RTWModifiedTimeStamp	  464983159
-  ModelVersionFormat	  "1.%<AutoIncrement:140>"
+  LastModifiedDate	  "Sun Nov 25 16:21:12 2018"
+  RTWModifiedTimeStamp	  465063658
+  ModelVersionFormat	  "1.%<AutoIncrement:141>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -177,11 +177,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "task5_5_e"
+    model_		    "p5p5ex"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "task5_5_e"
+      Cell		      "p5p5ex"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1210,7 +1210,7 @@ Model {
     }
   }
   System {
-    Name		    "task5_5_e"
+    Name		    "p5p5ex"
     Location		    [0, 22, 1680, 1050]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1226,7 +1226,7 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "151"
+    ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "68"
     Block {
@@ -1908,7 +1908,7 @@ Model {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
 	  SID			  "48::19"
-	  Tag			  "Stateflow S-Function task5_5_e 2"
+	  Tag			  "Stateflow S-Function p5p5ex 2"
 	  Ports			  [2, 4]
 	  Position		  [180, 102, 230, 203]
 	  ZOrder		  10
@@ -2168,7 +2168,7 @@ Model {
       BlockType		      TransferFcn
       Name		      "Transfer Fcn"
       SID		      "40"
-      Position		      [155, 179, 295, 241]
+      Position		      [155, 179, 315, 241]
       ZOrder		      10
       Numerator		      "[K_pd*T_d K_pd]"
       Denominator	      "[T_f 1]"
@@ -2438,7 +2438,7 @@ Model {
 Stateflow {
   machine {
     id			    1
-    name		    "task5_5_e"
+    name		    "p5p5ex"
     created		    "24-Nov-2018 13:11:49"
     isLibrary		    0
     sfVersion		    80000014
