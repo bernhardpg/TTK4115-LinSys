@@ -6,7 +6,6 @@ run('p5p5e.m');
 %% BIG Q
 
 %{
-
 sim('p5p5fx_e');
 
 % Save variables before changing Q and running again!
@@ -19,23 +18,23 @@ psi_w_data = psi_w_new.data;
 b_hat_data = b_hat_new.data;
 b_hat_time = b_hat_new.time;
 
-system.Q = Q * 10000;
+system.Q(2,2) = Q(2,2) * 10000;
 
 sim('p5p5fx_e'); % New values will be placed in variables marked with 'new'
 
-%{
-genPlotFile4('Part_5_5_f', 'Comparing measured with estimated compass course with increased Q', ...
+
+genPlotFile4('Part_5_5_f', 'Comparing measured with estimated compass course with increased Q_2', ...
     'time [s]', 'Heading [deg]',...
     psi_measured_new.time, psi_measured_new.data, psi_hat_new.data, ... % Data from part f with increased Q
     psi_measured_time, psi_measured_data, psi_hat_data, ... % Data from part d)
-    '$\psi$ Measured compass course, $Q \gg 1$', '$\hat{\psi}$ Estimated compass course, $Q \gg 1$',...
+    '$\psi$ Measured compass course, $Q_2 \gg 1$', '$\hat{\psi}$ Estimated compass course, $Q_2 \gg 1$',...
     '$\psi$ Measured compass course', '$\hat{\psi}$ Estimated compass course');
-%}
 
 
-genPlotFileDiffTime('Part_5_5_f', 'Comparing estimated bias with increased Q', 'time [s]', ...
+
+genPlotFileDiffTime('Part_5_5_f', 'Comparing estimated bias with increased Q_2', 'time [s]', ...
     'Rudder bias [deg]', b_hat_time, b_hat_data, b_hat_new.time, b_hat_new.data, ...
-    '$\hat{b}$ Estimated bias', '$\hat{b}$ Estimated bias, $Q \gg 1$');
+    '$\hat{b}$ Estimated bias', '$\hat{b}$ Estimated bias, $Q_2 \gg 1$');
 
 
 %{
@@ -48,7 +47,9 @@ genPlotFile4('Part_5_5_f', 'Comparing actuall with estimated wave influence with
 
 %}
 %}
+
 %% SMALL Q
+
 
 sim('p5p5fx_e');
 
@@ -62,22 +63,21 @@ psi_w_data = psi_w_new.data;
 b_hat_data = b_hat_new.data;
 b_hat_time = b_hat_new.time;
 
-system.Q = Q / 1000000;
+system.Q(2,2) = Q(2,2) / 100;
 
 sim('p5p5fx_e'); % New values will be placed in variables marked with 'new'
 
-%{
-genPlotFile4('Part_5_5_f', 'Comparing measured with estimated compass course with decreased Q', ...
+genPlotFile4('Part_5_5_f', 'Comparing measured with estimated compass course with decreased Q_2', ...
     'time [s]', 'Heading [deg]',...
     psi_measured_new.time, psi_measured_new.data, psi_hat_new.data, ... % Data from part f with increased Q
     psi_measured_time, psi_measured_data, psi_hat_data, ... % Data from part d)
-    '$\psi$ Measured compass course, $Q \ll 1$', '$\hat{\psi}$ Estimated compass course, $Q \ll 1$',...
+    '$\psi$ Measured compass course, $Q_2 \ll 1$', '$\hat{\psi}$ Estimated compass course, $Q_2 \ll 1$',...
     '$\psi$ Measured compass course', '$\hat{\psi}$ Estimated compass course');
-%}
 
-genPlotFileDiffTime('Part_5_5_f', 'Comparing estimated bias with decreased Q', 'time [s]', ...
+
+genPlotFileDiffTime('Part_5_5_f', 'Comparing estimated bias with decreased Q_2', 'time [s]', ...
     'Rudder bias [deg]', b_hat_time, b_hat_data, b_hat_new.time, b_hat_new.data, ...
-    '$\hat{b}$ Estimated bias', '$\hat{b}$ Estimated bias, $Q \ll 1$');
+    '$\hat{b}$ Estimated bias', '$\hat{b}$ Estimated bias, $Q_2 \ll 1$');
 
 %{
 genPlotFile4('Part_5_5_f', 'Comparing actuall with estimated wave influence with decreased Q',...
@@ -87,7 +87,6 @@ genPlotFile4('Part_5_5_f', 'Comparing actuall with estimated wave influence with
     '$\psi_w$ Wave influence, $Q \ll 1$', '$\hat{\psi}_w$ Estimated wave influence, $Q \ll 1$', ...
     '$\psi_w$ Wave influence', '$\hat{\psi}_w$ Estimated wave influence');
 
-%}
 %}
 
 %{

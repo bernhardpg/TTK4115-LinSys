@@ -1,12 +1,12 @@
 Model {
-  Name			  "task5_5_b"
+  Name			  "p5p5bx"
   Version		  9.1
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.38"
+    ComputedModelVersion    "1.40"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -19,13 +19,13 @@ Model {
     NumExternalFileReferences 2
     ExternalFileReference {
       Reference		      "simulink/Sources/Band-Limited\nWhite Noise"
-      Path		      "task5_5_b/Cargo ship/Measurement noise"
+      Path		      "p5p5bx/Cargo ship/Measurement noise"
       SID		      "11"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
       Reference		      "simulink/Sinks/XY Graph"
-      Path		      "task5_5_b/North-East"
+      Path		      "p5p5bx/North-East"
       SID		      "29"
       Type		      "LIBRARY_BLOCK"
     }
@@ -85,7 +85,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[936.0, 852.0]
 	ZoomFactor		[1.0]
-	Offset			[-58.234375, 0.0]
+	Offset			[-113.47757212665708, -26.874937068706693]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -119,9 +119,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bernhardpg"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Nov 24 16:15:05 2018"
-  RTWModifiedTimeStamp	  464976904
-  ModelVersionFormat	  "1.%<AutoIncrement:38>"
+  LastModifiedDate	  "Sun Nov 25 18:32:23 2018"
+  RTWModifiedTimeStamp	  465071543
+  ModelVersionFormat	  "1.%<AutoIncrement:40>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -177,11 +177,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "task5_5_b"
+    model_		    "p5p5bx"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "task5_5_b"
+      Cell		      "p5p5bx"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1117,28 +1117,6 @@ Model {
       DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
     }
     Block {
-      BlockType		      Sin
-      SineType		      "Time based"
-      TimeSource	      "Use simulation time"
-      Amplitude		      "1"
-      Bias		      "0"
-      Frequency		      "1"
-      Phase		      "0"
-      Samples		      "10"
-      Offset		      "0"
-      SampleTime	      "-1"
-      VectorParams1D	      on
-    }
-    Block {
-      BlockType		      Step
-      Time		      "1"
-      Before		      "0"
-      After		      "1"
-      SampleTime	      "-1"
-      VectorParams1D	      on
-      ZeroCross		      on
-    }
-    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -1200,17 +1178,9 @@ Model {
       NumInputs		      "1"
       SampleTime	      "0"
     }
-    Block {
-      BlockType		      TransferFcn
-      Numerator		      "[1]"
-      Denominator	      "[1 2 1]"
-      AbsoluteTolerance	      "auto"
-      ContinuousStateAttributes	"''"
-      Realization	      "auto"
-    }
   }
   System {
-    Name		    "task5_5_b"
+    Name		    "p5p5bx"
     Location		    [232, 22, 1206, 1050]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1229,19 +1199,6 @@ Model {
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "46"
-    Block {
-      BlockType		      Sum
-      Name		      "Add"
-      SID		      "42"
-      Ports		      [2, 1]
-      Position		      [60, 192, 90, 223]
-      ZOrder		      12
-      Commented		      "on"
-      Inputs		      "+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
     Block {
       BlockType		      SubSystem
       Name		      "Cargo ship"
@@ -1797,7 +1754,7 @@ Model {
       Name		      "Compass course"
       SID		      "30"
       Ports		      [1]
-      Position		      [555, 134, 585, 166]
+      Position		      [585, 174, 615, 206]
       ZOrder		      -3
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
@@ -1828,7 +1785,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "44"
-      Position		      [295, 195, 325, 225]
+      Position		      [265, 195, 295, 225]
       ZOrder		      13
       Value		      "0"
     }
@@ -1852,30 +1809,11 @@ Model {
       st		      "-1"
     }
     Block {
-      BlockType		      Sin
-      Name		      "Sine Wave"
-      SID		      "37"
-      Ports		      [0, 1]
-      Position		      [135, 560, 165, 590]
-      ZOrder		      7
-      Frequency		      "0.05"
-      SampleTime	      "0"
-    }
-    Block {
-      BlockType		      Step
-      Name		      "Step"
-      SID		      "38"
-      Position		      [45, 530, 75, 560]
-      ZOrder		      8
-      Time		      "0"
-      SampleTime	      "0"
-    }
-    Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace"
       SID		      "45"
       Ports		      [1]
-      Position		      [605, 305, 665, 335]
+      Position		      [605, 302, 690, 338]
       ZOrder		      14
       VariableName	      "v_measurement"
       MaxDataPoints	      "inf"
@@ -1883,55 +1821,6 @@ Model {
       Save2DSignal	      "3-D array (concatenate along third dimension)"
       FixptAsFi		      on
       SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      TransferFcn
-      Name		      "Transfer Fcn"
-      SID		      "40"
-      Position		      [125, 179, 265, 241]
-      ZOrder		      10
-      Commented		      "on"
-      Numerator		      "[K_pd*T_d K_pd]"
-      Denominator	      "[T_f 1]"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "r"
-      SID		      "41"
-      Position		      [-25, 185, 5, 215]
-      ZOrder		      11
-      Commented		      "on"
-      Value		      "psi_r"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "u"
-      SID		      "34"
-      Ports		      [1]
-      Position		      [305, 89, 335, 121]
-      ZOrder		      4
-      Commented		      "on"
-      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
-      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true,'DataLoggingSaveFormat','StructureWithTime','DataLoggingLimitDataPoints',true,'Data"
-      "LoggingDecimation','1','DataLoggingDecimateData',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configurati"
-      "on('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-67.8007','MaxYLimReal','247.70915',"
-      "'YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','247.70915','LegendVisibility','off','XGrid',true,'YGrid',tr"
-      "ue,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.6862745098039"
-      "22],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.1607843137"
-      "2549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823529411"
-      "7647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefine"
-      "dChannelNames',{{}},'NumLines',1,'LineNames',{{'Transfer Fcn'}},'ShowContent',true,'Placement',1)},'DisplayPrope"
-      "rtyDefaults',struct('MinYLimReal','-67.8007','MaxYLimReal','247.70915','YLabelReal','','MinYLimMag','0.00000','M"
-      "axYLimMag','247.70915','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 "
-      "0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;"
-      "0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 "
-      "0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392"
-      "156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNam"
-      "es',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Config"
-      "uration('Tools','Measurements',true,'Version','2017a')),'Version','2017a','Location',[2 84 960 1038])"
-      NumInputPorts	      "1"
-      Floating		      off
     }
     Line {
       ZOrder		      1
@@ -1948,28 +1837,6 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      13
-      SrcBlock		      "Transfer Fcn"
-      SrcPort		      1
-      Points		      [7, 0; 0, -105]
-      DstBlock		      "u"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      15
-      SrcBlock		      "r"
-      SrcPort		      1
-      DstBlock		      "Add"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      27
-      SrcBlock		      "Add"
-      SrcPort		      1
-      DstBlock		      "Transfer Fcn"
-      DstPort		      1
-    }
-    Line {
       ZOrder		      28
       SrcBlock		      "Constant"
       SrcPort		      1
@@ -1980,38 +1847,18 @@ Model {
       ZOrder		      3
       SrcBlock		      "Cargo ship"
       SrcPort		      1
-      Points		      [12, 0]
+      Points		      [27, 0]
       Branch {
-	ZOrder			20
-	Points			[0, 87; -421, 0; 0, -62]
-	DstBlock		"Add"
-	DstPort			2
+	ZOrder			42
+	Points			[0, 130]
+	DstBlock		"To Workspace"
+	DstPort			1
       }
       Branch {
-	ZOrder			19
-	Points			[15, 0]
-	Branch {
-	  ZOrder		  42
-	  Points		  [0, 130]
-	  DstBlock		  "To Workspace"
-	  DstPort		  1
-	}
-	Branch {
-	  ZOrder		  34
-	  Points		  [53, 0; 0, -40]
-	  DstBlock		  "Compass course"
-	  DstPort		  1
-	}
+	ZOrder			34
+	DstBlock		"Compass course"
+	DstPort			1
       }
-    }
-    Annotation {
-      SID		      "43"
-      Name		      "e"
-      Position		      [99, 192, 106, 204]
-      InternalMargins	      [0, 0, 0, 0]
-      HorizontalAlignment     "left"
-      VerticalAlignment	      "top"
-      ZOrder		      -1
     }
   }
 }

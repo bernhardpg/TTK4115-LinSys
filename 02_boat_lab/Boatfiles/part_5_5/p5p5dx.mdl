@@ -1,12 +1,12 @@
 Model {
-  Name			  "task5_5_d"
+  Name			  "p5p5dx"
   Version		  9.1
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.125"
+    ComputedModelVersion    "1.127"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -19,13 +19,13 @@ Model {
     NumExternalFileReferences 2
     ExternalFileReference {
       Reference		      "simulink/Sources/Band-Limited\nWhite Noise"
-      Path		      "task5_5_d/Cargo ship/Measurement noise"
+      Path		      "p5p5dx/Cargo ship/Measurement noise"
       SID		      "11"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
       Reference		      "simulink/Sinks/XY Graph"
-      Path		      "task5_5_d/North-East"
+      Path		      "p5p5dx/North-East"
       SID		      "29"
       Type		      "LIBRARY_BLOCK"
     }
@@ -85,7 +85,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1452.0, 852.0]
 	ZoomFactor		[1.5093364689515829]
-	Offset			[-34.275599104634807, 11.38177010182585]
+	Offset			[-9.0989729634831225, 12.706855688202255]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -119,9 +119,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "bernhardpg"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Nov 24 17:59:10 2018"
-  RTWModifiedTimeStamp	  464983149
-  ModelVersionFormat	  "1.%<AutoIncrement:125>"
+  LastModifiedDate	  "Sun Nov 25 18:33:24 2018"
+  RTWModifiedTimeStamp	  465071604
+  ModelVersionFormat	  "1.%<AutoIncrement:127>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -177,11 +177,11 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "task5_5_d"
+    model_		    "p5p5dx"
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "task5_5_d"
+      Cell		      "p5p5dx"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -1210,7 +1210,7 @@ Model {
     }
   }
   System {
-    Name		    "task5_5_d"
+    Name		    "p5p5dx"
     Location		    [0, 22, 1680, 1050]
     Open		    on
     PortBlocksUseCompactNotation off
@@ -1884,7 +1884,7 @@ Model {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
 	  SID			  "48::19"
-	  Tag			  "Stateflow S-Function task5_5_d 2"
+	  Tag			  "Stateflow S-Function p5p5dx 2"
 	  Ports			  [2, 3]
 	  Position		  [180, 100, 230, 180]
 	  ZOrder		  10
@@ -1974,14 +1974,6 @@ Model {
 	  DstPort		  1
 	}
       }
-    }
-    Block {
-      BlockType		      Memory
-      Name		      "Memory1"
-      SID		      "54"
-      Position		      [410, 385, 440, 415]
-      ZOrder		      23
-      BlockMirror	      on
     }
     Block {
       BlockType		      Memory
@@ -2096,7 +2088,7 @@ Model {
       BlockType		      TransferFcn
       Name		      "Transfer Fcn"
       SID		      "40"
-      Position		      [155, 179, 295, 241]
+      Position		      [155, 179, 310, 241]
       ZOrder		      10
       Numerator		      "[K_pd*T_d K_pd]"
       Denominator	      "[T_f 1]"
@@ -2114,7 +2106,7 @@ Model {
       BlockType		      ZeroOrderHold
       Name		      "Zero-Order\nHold1"
       SID		      "51"
-      Position		      [695, 335, 730, 365]
+      Position		      [675, 335, 710, 365]
       ZOrder		      20
       BlockMirror	      on
       SampleTime	      "T_s"
@@ -2126,35 +2118,6 @@ Model {
       Position		      [-25, 185, 5, 215]
       ZOrder		      11
       Value		      "psi_r"
-    }
-    Block {
-      BlockType		      Scope
-      Name		      "u"
-      SID		      "34"
-      Ports		      [1]
-      Position		      [515, 89, 545, 121]
-      ZOrder		      4
-      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
-      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true,'DataLoggingSaveFormat','StructureWithTime','DataLoggingLimitDataPoints',true,'Data"
-      "LoggingDecimation','1','DataLoggingDecimateData',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configurati"
-      "on('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-23.09776','MaxYLimReal','242.86987'"
-      ",'YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','242.86987','LegendVisibility','off','XGrid',true,'YGrid',t"
-      "rue,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
-      "922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.160784313"
-      "72549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.05882352941"
-      "17647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefin"
-      "edChannelNames',{{}},'NumLines',1,'LineNames',{{'Sum'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefau"
-      "lts',struct('MinYLimReal','-23.09776','MaxYLimReal','242.86987','YLabelReal','','MinYLimMag','0.00000','MaxYLimM"
-      "ag','242.86987','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'Axe"
-      "sTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.07450"
-      "98039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450"
-      "98039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]"
-      ",'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{["
-      "]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration"
-      "('Tools','Measurements',true,'Version','2018a')),'Version','2018a','Location',[2 94 960 1048])"
-      NumInputPorts	      "1"
-      Floating		      off
     }
     Line {
       ZOrder		      1
@@ -2262,18 +2225,8 @@ Model {
       ZOrder		      102
       SrcBlock		      "Sum"
       SrcPort		      1
-      Points		      [56, 0]
-      Branch {
-	ZOrder			104
-	Points			[0, -105]
-	DstBlock		"u"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			103
-	DstBlock		"Saturation"
-	DstPort			1
-      }
+      DstBlock		      "Saturation"
+      DstPort		      1
     }
     Line {
       ZOrder		      136
@@ -2293,7 +2246,7 @@ Model {
 	Points			[40, 0]
 	Branch {
 	  ZOrder		  107
-	  Points		  [5, 0; 0, 79; 258, 0; 0, 61]
+	  Points		  [5, 0; 0, 79; 204, 0; 0, 61]
 	  DstBlock		  "Zero-Order\nHold1"
 	  DstPort		  1
 	}
@@ -2344,7 +2297,7 @@ Model {
 Stateflow {
   machine {
     id			    1
-    name		    "task5_5_d"
+    name		    "p5p5dx"
     created		    "24-Nov-2018 13:11:49"
     isLibrary		    0
     sfVersion		    80000014
