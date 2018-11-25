@@ -1,6 +1,7 @@
 %% Part 5.5 d)
+run('p5p5c.m');
 psi_r = 30;
-sim('task5_5_d');
+sim('p5p5dx');
 
 
 
